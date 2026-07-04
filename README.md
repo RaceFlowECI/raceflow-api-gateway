@@ -56,6 +56,26 @@
 
 ## Estructura del proyecto
 
+```text
+raceflow-api-gateway/
+├── .github/workflows/
+├── .env.example
+├── .gitignore
+├── Dockerfile
+├── pom.xml
+└── src/main/java/edu/eci/arsw/raceflow/gateway/
+    ├── GatewayApplication.java
+    ├── config/
+    │   ├── GatewayConfig.java
+    │   ├── SecurityConfig.java
+    │   └── CorsConfig.java
+    ├── filter/
+    │   ├── JwtAuthFilter.java
+    │   └── CorrelationIdFilter.java
+    └── resources/
+        └── application.yml
+```
+
 ---
 
 ## Configuracion local
