@@ -115,6 +115,18 @@ mvn spring-boot:run
 
 ## Tabla de rutas
 
+| Metodo | Ruta publica | Servicio destino | Auth |
+|---|---|---|---|
+| `POST` | `/auth/register` | Auth Service :8081 | No |
+| `POST` | `/auth/login` | Auth Service :8081 | No |
+| `GET` | `/auth/me` | Auth Service :8081 | JWT |
+| `POST` | `/rooms` | Room Service :8082 | JWT |
+| `GET` | `/rooms/{code}` | Room Service :8082 | JWT |
+| `POST` | `/sessions` | Session Service :8084 | JWT |
+| `POST` | `/sessions/{id}/finish` | Session Service :8084 | JWT |
+| `GET` | `/metrics/**` | Metrics Service :8085 | JWT |
+| `WS` | `/ws/rooms/{code}` | Realtime Service :8083 | JWT |
+
 ---
 
 ## Pruebas y calidad
