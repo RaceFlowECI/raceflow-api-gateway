@@ -80,6 +80,37 @@ raceflow-api-gateway/
 
 ## Configuracion local
 
+### 1. Clonar el repositorio
+```bash
+git clone https://github.com/RaceFlowECI/raceflow-api-gateway.git
+cd raceflow-api-gateway
+```
+
+### 2. Compilar
+```bash
+mvn clean install
+```
+
+### 3. Configurar variables de entorno
+```bash
+cp .env.example .env
+```
+```env
+JWT_SECRET=raceflow-dev-secret-key-for-local-dev-only-32chars
+AUTH_SERVICE_URL=http://localhost:8081
+ROOM_SERVICE_URL=http://localhost:8082
+REALTIME_SERVICE_URL=http://localhost:8083
+SESSION_SERVICE_URL=http://localhost:8084
+METRICS_SERVICE_URL=http://localhost:8085
+```
+
+### 4. Ejecutar
+```bash
+mvn spring-boot:run
+```
+> [!TIP]
+> El gateway arranca en `http://localhost:8080`.
+
 ---
 
 ## Tabla de rutas
