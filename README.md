@@ -15,6 +15,7 @@
 - [Tabla de rutas](#tabla-de-rutas)
 - [Pruebas y calidad](#pruebas-y-calidad)
 - [CI/CD](#cicd)
+- [Observabilidad](#observabilidad)
 
 ---
 
@@ -144,3 +145,27 @@ mvn clean test jacoco:report
 | Puerto | 8080 |
 | Plataforma | _por definir_ |
 | Ultima version | ![CI](https://github.com/RaceFlowECI/raceflow-api-gateway/actions/workflows/ci.yml/badge.svg) |
+
+---
+
+## Observabilidad
+
+### Endpoint de métricas
+```
+GET http://localhost:8080/actuator/prometheus
+```
+También disponibles: `/actuator/health`, `/actuator/info`, `/actuator/metrics`.
+
+### Métricas de negocio
+
+> Solo expone el endpoint de Prometheus. No tiene métricas de negocio propias; las métricas HTTP de cada microservicio se recolectan a través de sus propios endpoints.
+
+
+### Verificación local
+```bash
+# Con el servicio corriendo:
+curl -s http://localhost:8080/actuator/prometheus | grep raceflow_
+```
+
+> [!NOTE]
+> Micrometer convierte puntos a guiones bajos: `raceflow.rooms.created` → `raceflow_rooms_created_total` en Prometheus.
