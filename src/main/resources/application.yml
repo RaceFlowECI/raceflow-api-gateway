@@ -4,9 +4,20 @@ server:
 spring:
   application:
     name: raceflow-api-gateway
-
-spring:
   cloud:
     gateway:
       routes: []
 
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus,metrics
+  endpoint:
+    prometheus:
+      enabled: true
+  metrics:
+    tags:
+      application: ${spring.application.name}
+      environment: local
