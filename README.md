@@ -1,5 +1,7 @@
 # RACEFLOW — API Gateway
 
+![Build](https://github.com/RaceFlowECI/raceflow-api-gateway/actions/workflows/build.yml/badge.svg)
+
 > [!IMPORTANT]
 > Este repositorio contiene el **API Gateway** de RaceFlow: punto de entrada unico del sistema.
 
