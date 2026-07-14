@@ -6,19 +6,19 @@ import org.springframework.security.config.annotation.web.reactive.EnableWebFlux
 import org.springframework.security.config.web.server.ServerHttpSecurity;
 import org.springframework.security.web.server.SecurityWebFilterChain;
 
-/** WebFlux security configuration for the gateway's reactive request pipeline. */
+/** Configuración de seguridad WebFlux para el pipeline reactivo de peticiones del gateway. */
 @Configuration
 @EnableWebFluxSecurity
 public class SecurityConfig {
 
     /**
-     * The gateway itself does not authenticate requests -- each proxied route hits a
-     * downstream service (auth-service, realtime-service) that already enforces its own
-     * JWT validation. Requiring auth here too would just duplicate that check at a layer
-     * that has no way to validate the same tokens without re-implementing JwtService.
+     * El propio gateway no autentica las peticiones -- cada ruta proxeada llega a un
+     * servicio downstream (auth-service, realtime-service) que ya aplica su propia
+     * validación de JWT. Exigir autenticación aquí también solo duplicaría esa verificación
+     * en una capa que no tiene forma de validar los mismos tokens sin reimplementar JwtService.
      *
-     * @param http the reactive HTTP security builder
-     * @return the security filter chain, permitting all exchanges through to the routes
+     * @param http el builder reactivo de seguridad HTTP
+     * @return la cadena de filtros de seguridad, permitiendo todos los exchanges hacia las rutas
      */
     @Bean
     public SecurityWebFilterChain filterChain(ServerHttpSecurity http) {

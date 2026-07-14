@@ -4,12 +4,12 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * Entry point of the API Gateway. Routes incoming requests to auth-service and
- * realtime-service, and handles cross-cutting concerns like CORS.
+ * Punto de entrada del API Gateway. Enruta las peticiones entrantes hacia auth-service y
+ * realtime-service, y maneja preocupaciones transversales como CORS.
  */
 @SpringBootApplication
 public class GatewayApplication {
-    /** @param args command-line arguments passed to Spring Boot */
+    /** @param args argumentos de línea de comandos pasados a Spring Boot */
     public static void main(String[] args) {
         SpringApplication.run(GatewayApplication.class, args);
     }
