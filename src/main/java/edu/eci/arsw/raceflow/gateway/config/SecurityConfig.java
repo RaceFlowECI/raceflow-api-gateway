@@ -25,6 +25,13 @@ public class SecurityConfig {
         return http
                 .csrf(ServerHttpSecurity.CsrfSpec::disable) // NOSONAR java:S4502 -- stateless gateway, no session cookies
                 .authorizeExchange(exchange -> exchange.anyExchange().permitAll())
+                .headers(headers -> headers
+                        .contentTypeOptions(withDefaults -> {})
+                        .frameOptions(frame -> frame.mode(org.springframework.security.web.server.header.XFrameOptionsServerHttpHeadersWriter.Mode.DENY))
+                        .hsts(hsts -> hsts.maxAge(java.time.Duration.ofDays(365)))
+                        .referrerPolicy(referrer -> referrer
+                                .policy(org.springframework.security.web.server.header.ReferrerPolicyServerHttpHeadersWriter.ReferrerPolicy.STRICT_ORIGIN_WHEN_CROSS_ORIGIN))
+                )
                 .build();
     }
 }
